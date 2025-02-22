@@ -1,9 +1,10 @@
 // for createing schema and model of a user in mongoose
-
+const dotenv = require("dotenv")
+dotenv.config()
 const mongoose = require("mongoose")
 const {Schema} = mongoose;
-
-mongoose.connect("mongodb+srv://GeekyPratham:EuC5zlZwQifbXkuo@cluster0.wfhhz.mongodb.net/Paytm")
+// console.log(process.env.MONGO_URI)
+mongoose.connect(`${process.env.MONGO_URI}`)
 
 //creating a  schema for user
 
