@@ -78,24 +78,25 @@ router.post("/signup",async (req,res)=>{
 // input zod validation for signin routes
 
 const signInSchema = zod.object({
-    userName:zod.string().email(),
+    username:zod.string().email(),
     password:zod.string(),
 })
 
 router.post("/signin",async (req,res)=>{
     const body = req.body;
-    console.log(body.userName)
+    console.log(body.username)
     console.log(body.password)
     const {success} = signInSchema.safeParse(body);
     
     if(!success){
+        console.log("input data is incorrect")
         return res.status(411).json({
             message:"email already take / Incorrect input"
         })
     }
 
     const user = await User.findOne({
-         username: req.body.userName,
+         username: req.body.username,
          password: req.body.password
     })
 
@@ -109,8 +110,8 @@ router.post("/signin",async (req,res)=>{
             token:token
         })
     }
-
-    res.status(411).json({
+    console.log("not valid user")
+    return res.status(411).json({
         msg:"error while login "
     })
 })

@@ -11,6 +11,6 @@ const mainRouter = require("./routes/index") // // Import the routes from the 'r
 
 app.use("/api/v1" ,mainRouter) // all routes will start with /api/v1
 
-app.listen(3000,()=>{
-    console.log('Server running on port 3000');
+app.listen(5000,()=>{
+    console.log('Server running on port 5000');
 });

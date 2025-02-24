@@ -1,4 +1,3 @@
-import React from "react"
 import { useState } from "react"
 import Heading from "../components/Heading"
 import InputBox from "../components/InputBox"
@@ -9,6 +8,7 @@ import Button from "../components/Button"
 import {useNavigate} from "react-router-dom"
 
 import axios from "axios"
+// import { response } from "express"
 
 export const SignIn = () =>{
 
@@ -33,12 +33,21 @@ export const SignIn = () =>{
 
                 <div className="pt-4">
                     <Button label={"SignIn"} onClick={async ()=>{
-                        const response = await axios.post("http://localhost:3000/api/v1/user/signin",{
+                        try{
+                            const response = await axios.post("http://localhost:5000/api/v1/user/signin",{
                                 username,
                                 password
                             })
-                        localStorage.setItem("token",response.data.token);
-                        navigate("/dashboard")
+                            console.log(response)
+                            
+                            localStorage.setItem("token",response.data.token);
+                            navigate("/dashboard")
+                        }
+                        catch(err){
+                            console.error(err);
+                            navigate("/signup")
+                        }
+                        
                     }}/>
                 </div>
                 <BottomWarning label={"Dont have an account"} linktext={"SignUp"} to={"/SignUp"}/>

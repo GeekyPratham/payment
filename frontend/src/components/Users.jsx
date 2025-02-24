@@ -10,7 +10,7 @@ export const Users = () => {
     const [filter, setFilter] = useState("");
 
     useEffect(() => {
-        axios.get("http://localhost:3000/api/v1/user/bulk?filter=" + filter)
+        axios.get("http://localhost:5000/api/v1/user/bulk?filter=" + filter)
             .then(response => {
                 console.log(response.data); // Check the structure here
                 setUsers(response.data.user || []); // Default to an empty array if user is undefined

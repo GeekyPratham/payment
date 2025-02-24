@@ -4,10 +4,12 @@ import {Users} from "../components/Users"
 
 export const Dashboard = () =>{
     console.log("dashboard")
+    const token = localStorage.getItem("token");
+    console.log(token)
     return <div>
         <AppBar/>
         <div className="m-8">
-            <Balance value={"10,000"}/>
+            <Balance />
             <Users/>
         </div>
     </div>

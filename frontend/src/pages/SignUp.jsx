@@ -1,4 +1,3 @@
-import React from "react"
 import { useState } from "react"
 import Heading from "../components/Heading"
 import InputBox from "../components/InputBox"
@@ -40,7 +39,7 @@ export const SignUp = () =>{
                 }} name={"Password"} placeholder={"12345678"}/>
                 <div className="pt-4">
                     <Button label={"SignUp"} onClick={async ()=>{
-                        const response = await axios.post("http://localhost:3000/api/v1/user/signup",{
+                        const response = await axios.post("http://localhost:5000/api/v1/user/signup",{
                                 firstName,
                                 lastName,
                                 userName,
