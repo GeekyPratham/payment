@@ -11,14 +11,14 @@ const authMiddleware = (req,res,next) =>{
     }
     const token = authHeader.split(' ')[1];
     // console.log("got the token successfully")
-    console.log(token)
+    // console.log(token)
 
     // verify the token 
     try{
         
         // console.log("to verify")
         const decode = jwt.verify(token,JWT_SECRET)
-        console.log(decode)
+        // console.log(decode)
         if(decode.userId){
             req.userId = decode.userId;
             next();

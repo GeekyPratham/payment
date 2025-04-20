@@ -38,13 +38,13 @@ export const SignIn = () =>{
                                 username,
                                 password
                             })
-                            console.log(response)
+                            // console.log(response)
                             
                             localStorage.setItem("token",response.data.token);
                             navigate("/dashboard")
                         }
                         catch(err){
-                            console.error(err);
+                            // console.error(err);
                             navigate("/signup")
                         }
                         

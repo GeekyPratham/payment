@@ -7,23 +7,23 @@ export const Balance = () =>{
         const fetchBalance = async () => {
             try {
                 const token = localStorage.getItem("token");
-                console.log("Token:", token);
+                // console.log("Token:", token);
 
-                const res = await axios.get("http://localhost:3000/api/v1/account/balance", {
+                const res = await axios.get("http://localhost:5000/api/v1/account/balance", {
                     headers: {
                         Authorization: "Bearer " + token,
                     },
                 });
 
-                console.log("Response from backend:", res.data);
+                // console.log("Response from backend:", res.data);
                 
                 var amount = res.data;
-                console.log(typeof amount.balance)
+                // console.log(typeof amount.balance)
                 amount = Math.trunc(Number(amount.balance))
-                console.log(amount)
+                // console.log(amount)
                 setValue(amount); // Update state with the balance value
             } catch (err) {
-                console.error("Error fetching balance:", err.response?.data || err.message);
+                // console.error("Error fetching balance:", err.response?.data || err.message);
             }
         };
 

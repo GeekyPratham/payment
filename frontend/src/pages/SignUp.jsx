@@ -45,6 +45,7 @@ export const SignUp = () =>{
                                 userName,
                                 password
                             })
+                            // we get token which is store in localstorage 
                         localStorage.setItem("token",response.data.token);
                         navigate("/dashboard")
                     }}/>

@@ -5,9 +5,9 @@ import { useState } from 'react';
 export const SendMoney = () => {
     const [searchParams] = useSearchParams();
     const id = searchParams.get("id");
-    console.log(id)
+    // console.log(id)
     const name = searchParams.get("name");
-    console.log(name)
+    // console.log(name)
     const [amount, setAmount] = useState(0);
     const navigate = useNavigate();
 
@@ -55,10 +55,15 @@ export const SendMoney = () => {
                                 Authorization: "Bearer " + localStorage.getItem("token")
                             }
                         })
-                        if(res){
+                        // console.log(res.data)
+                        if(res.status === 200){
+                            // console.log("hello pratham")
+                            // console.log(res)
                             alert("money transfer successully")
                             navigate("/Dashboard")
                         }
+                        
+                       
                     }} className="justify-center rounded-md text-sm font-medium ring-offset-background transition-colors h-10 px-4 py-2 w-full bg-green-500 text-white">
                         Initiate Transfer
                     </button>

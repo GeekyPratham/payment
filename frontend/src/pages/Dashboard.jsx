@@ -3,9 +3,9 @@ import {Balance}  from "../components/Balance"
 import {Users} from "../components/Users"
 
 export const Dashboard = () =>{
-    console.log("dashboard")
+    // console.log("dashboard")
     const token = localStorage.getItem("token");
-    console.log(token)
+    // console.log(token)
     return <div>
         <AppBar/>
         <div className="m-8">
